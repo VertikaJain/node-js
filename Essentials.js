@@ -1,14 +1,15 @@
 // Process is a global object, with env property, describing the user info.
 const name = process.env.USERNAME;
-console.log(`hi ${name}`);
+console.log(`hi ${name}`); // template
 
 // Command Line Arguments
-const arguments = process.argv.slice(2);
-let sum = arguments.reduce((a, r) => a + parseInt(r), 0);
+console.log(process.argv);
+const arguments = process.argv.slice(2); // to not include the default args from array i.e. node.exe & file path
+let sum = arguments.reduce((a, r) => a + parseInt(r), 0); // accumulator takes default value as 0, then adds value
 console.log(sum);
 
 // OS Module & Environment
-const os = require("os");
+const os = require("os"); //includes the os module
 console.log(os.userInfo()); // system's user details
 console.log(os.platform()); // OS name
 console.log(os.release()); // version of OS
