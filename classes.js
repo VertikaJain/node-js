@@ -23,6 +23,7 @@ let dataObj2 = new Demo("mobile", "android")
 console.log(dataObj1);
 console.log(dataObj2);
 
+// Method Chaining
 dataObj1.login().purchase()
 dataObj2.purchase().logout()
 
@@ -32,3 +33,15 @@ The "new" keyword:
     - sets the value of "this" to be the new empty object created.
     - calls the constructor method
 */
+
+// Class Inheritance
+class Admin extends Demo {
+    deleteDemo(demo) {
+        DataObjs = DataObjs.filter(d => d.device != demo.device)
+    }
+}
+let admin = new Admin("iphone", "apple");
+let DataObjs = [dataObj1, dataObj2, admin]
+console.log("Before deleting: ", DataObjs);
+admin.deleteDemo(dataObj2)
+console.log("After deleting: ", DataObjs);
